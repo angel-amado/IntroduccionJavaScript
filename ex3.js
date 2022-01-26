@@ -16,17 +16,23 @@ class DNI {
 
     // Nos devuelve 'true' o 'false' indicando si el DNI está calculado
     estaCaducado() {
+        if()
         
     }
 
     // Debe devolver 'true' si el DNI está bien formado, o 'false' en caso contrario
     esDniFormatoValido() {
+        if(this.numero == /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i ){
+            return true;
+        }else{
+            return false;
+        }
 
     }
 
     // Dado un número de DNI, nos calcula la letra. Buscar por Internet como calcular la letra de un DNI
     calculaLetraDni(dni) {
-
+        return "TRWAGMYFPDXBNJZSQVHLCKE".charAt(dni % 23);
   
     }
 }

@@ -7,16 +7,31 @@ class Coche {
      * @param {boolean} gps Indica si lleva navegación GPS integrada
      * @param {number} deposito Indica cuan lleno está el depósito. 100 indica que está completamente lleno, 0 que esta vacío.
      */
-    constructor(modelo, matricula, gps) {
+    constructor(modelo, matricula, gps, deposito) {
+        this.modelo = modelo;
+        this.matricula = matricula;
+        this.gps = gps;
+        this.deposito = 100;
+        
 
     }
 
     // Llena el deposito a 100 unidades de gasolina
     llenarDeposito() {
+        this.deposito = 100;
     }
 
     // Consume una unidad del deposito
     usar() {
+        this.deposito--;
+    }
+    
+    estaDepositoVacio(){
+        if (this.deposito == 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }
@@ -35,12 +50,12 @@ console.log("Coche Astra después de usarlo:", astra)
 
 //3. Después de invocar el método 'llenarDeposito', el coche debería tener 100 unidades de gasolina en el deposito
 astra.llenarDeposito()
-console.log("Coche Astra después de usarlo:", astra)
+console.log("Coche Astra después de llenar el deposito:", astra)
 
 
 //4. Implementa un NUEVO MÉTODO en la clase Coche. Este método se va a llamar 'estaDepositoVacio'. Debe devolver 'true' si al deposito le quedan 0 unidades de gasolina
 ibiza.deposito = 0
-console.log("El deposito del Ibiza debería estar vacío", ibiza)
+console.log("El deposito del Ibiza debería estar vacío", ibiza.estaDepositoVacio());
 
 
 
